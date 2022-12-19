@@ -16,8 +16,6 @@ function SubscribePage() {
     return emailList.some((userEmail) => userEmail.email === value);
   };
 
-  const errorMessage = handleCheck();
-
   const handleEmailSend = async (value) => {
     console.log(userEmail);
     if (handleCheck(value)) {
