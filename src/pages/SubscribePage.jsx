@@ -1,16 +1,37 @@
 import SubscribeInput from "../components/SubscribeInput";
 import { useState, useEffect } from "react";
 
-import { postEmailRequest, getEmailRequest } from "../model";
+import UseEmailsContext from "../hooks/use-emails-context";
 
 function SubscribePage() {
   const [userEmail, setUserEmail] = useState("");
-  const [emailsArray, setEmailsArray] = useState([]);
 
-  const handleEmail = async (value) => {
+  const { fetchEmailList, postToEmailList, emailList } = UseEmailsContext();
+
+  useEffect(() => {
+    fetchEmailList();
+  }, [fetchEmailList]);
+
+  const handleCheck = (value) => {
+    return emailList.some((userEmail) => userEmail.email === value);
+  };
+
+  const errorMessage = handleCheck();
+
+  const handleEmailSend = async (value) => {
+    console.log(userEmail);
+    if (handleCheck(value)) {
+      console.log("Error: This email is already registered");
+      return;
+    }
+
+    if (value === "") {
+      console.log("Error: Please insert a valid email");
+      return;
+    }
+
     setUserEmail(value);
-    await postEmailRequest(userEmail);
-    console.log("email:", userEmail);
+    await postToEmailList(value);
   };
 
   return (
@@ -37,7 +58,7 @@ function SubscribePage() {
             </p>
             <div className="flex max-w-full flex-col mt-5 space-y-4 md:space-x-3 md:flex-row md:space-y-0">
               <div className="flex flex-col justify-start items-start">
-                <SubscribeInput onChange={handleEmail} />
+                <SubscribeInput onChange={handleEmailSend} />
                 {userEmail ? (
                   <p className=" text-white leading-5 my-3 ">
                     Thanks for subscribing: <br /> {userEmail}
