@@ -8,7 +8,7 @@ import Route from "./components/Route";
 function App() {
   return (
     <div>
-      <div>
+      <div className="fixed z-20">
         <NavigationBar />
       </div>
       <div>

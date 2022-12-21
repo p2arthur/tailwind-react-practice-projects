@@ -9,7 +9,11 @@ function Link({ children, path, className }) {
   };
 
   return (
-    <a onClick={handleClick} className={className} href={path}>
+    <a
+      onClick={handleClick}
+      className={`${className} ${currentPage === path ? "underline" : null}`}
+      href={path}
+    >
       {children}
     </a>
   );
