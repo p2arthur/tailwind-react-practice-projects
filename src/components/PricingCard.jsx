@@ -1,4 +1,5 @@
 import { GoCheck } from "react-icons/go";
+import Link from "./Link";
 
 function PricingCard({
   plan,
@@ -19,7 +20,7 @@ function PricingCard({
         <h3 className="mt-2 text-center">${price}/Month</h3>
         <div className="flex justify-center">
           <a
-            href="#"
+            href="#somewhere"
             className={`inline-block px-10 py-3 my-6 text-center border border-violet-600 rounded-lg hover:bg-violet-800 transition-all hover:border-violet-800 hover:shadow-xl ${className}`}
           >
             Purchase
