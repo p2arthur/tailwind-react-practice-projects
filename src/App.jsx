@@ -1,6 +1,7 @@
 import SubscribePage from "./pages/SubscribePage";
 import PricingPage from "./pages/PricingPage";
 import ProductModalPage from "./pages/ProductModalPage";
+import GalleryPage from "./pages/GalleryPage";
 
 import NavigationBar from "./components/NavigationBar";
 
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/product">
           <ProductModalPage />
+        </Route>
+        <Route path="/gallery">
+          <GalleryPage />
         </Route>
       </div>
     </div>
