@@ -8,13 +8,13 @@ function NavigationBar() {
   ];
 
   const renderedPages = pages.map((page) => (
-    <Link key={page.label} className="hover:bg-red-300" path={page.path}>
+    <Link key={page.label} className="hover:bg-blue-500  p-3" path={page.path}>
       {page.label}
     </Link>
   ));
 
   return (
-    <div className="h-20 flex items-center justify-around bg-sky-500 text-white fixed w-full shadow-lg z-50">
+    <div className="flex items-center justify-around bg-sky-500 text-white fixed w-full shadow-lg z-50">
       {renderedPages}
     </div>
   );

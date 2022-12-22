@@ -11,7 +11,9 @@ function Link({ children, path, className }) {
   return (
     <a
       onClick={handleClick}
-      className={`${className} ${currentPage === path ? "underline" : null}`}
+      className={`${className} ${
+        currentPage === path ? "border-b-4 border-green-300" : null
+      }`}
       href={path}
     >
       {children}
