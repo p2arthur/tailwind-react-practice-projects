@@ -4,6 +4,7 @@ function NavigationBar() {
   const pages = [
     { label: "Subscribe", path: "/subscribe" },
     { label: "Pricing", path: "/pricing" },
+    { label: "Product", path: "/product" },
   ];
 
   const renderedPages = pages.map((page) => (
